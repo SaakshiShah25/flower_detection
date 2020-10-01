@@ -18,7 +18,7 @@ from keras.layers import BatchNormalization
 classifier=Sequential()
 
 #Step 1 Convolution
-classifier.add(Convolution2D(32,(3,3),input_shape=(64,64,3),activation='relu'))
+classifier.add(Convolution2D(64,(3,3),input_shape=(128,128,3),activation='relu'))
 #Step 2 Pooling
 classifier.add(MaxPooling2D(pool_size=(2,2)))
 
@@ -82,6 +82,6 @@ test_set = test_datagen.flow_from_directory(
 classifier.fit_generator(
         training_set,
         steps_per_epoch=3463,
-        epochs=50,
+        epochs=100,
         validation_data=test_set,
         validation_steps=860)
